@@ -1,0 +1,92 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title> Swiper & ion-activatable issue reproduction </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large"
+        >Swiper & ion-activatable issue reproduction</ion-title
+      >
+    </ion-toolbar>
+  </ion-header>
+
+  <div class="home ion-padding">
+    <p>
+      <ion-text
+        color="warning"
+        class="ion-padding-bottom"
+        style="display: flex; align-items: center; gap: 0.25rem"
+      >
+        <ion-icon name="warning"></ion-icon>
+        The button should shrink in size when clicked.
+      </ion-text>
+
+      This is achieved by styling the "ion-activated" class. The problem is that
+      the "ion-activated" class is not added to the element with
+      "ion-activatable" class when it is inside a swiper container.
+    </p>
+
+    <!-- Swiper container + button inside -->
+    <swiper-container>
+      <swiper-slide>
+        <div class="swiper-slide-content">
+          <ion-text class="ion-text-center">
+            <h1>Swiper container + button inside</h1>
+            <ion-text color="warning">
+              <p>Works only on touch devices. Does not work on desktop.</p>
+            </ion-text>
+            <ion-text color="success">
+              <p>Allows to swipe the slide when touching the button.</p>
+            </ion-text>
+          </ion-text>
+
+          <ion-button>
+            <ion-icon slot="start" name="logo-ionic"></ion-icon>
+            Button (default)
+          </ion-button>
+        </div>
+      </swiper-slide>
+
+      <swiper-slide class="home__swiper-slide">
+        <div class="swiper-slide-content">Another slide</div>
+      </swiper-slide>
+    </swiper-container>
+
+    <!-- Swiper container + button inside (with "swiper-no-swiping" class) -->
+    <swiper-container>
+      <swiper-slide>
+        <div class="swiper-slide-content">
+          <ion-text class="ion-text-center">
+            <h1>
+              Swiper container + button inside (with "swiper-no-swiping" class)
+            </h1>
+            <ion-text color="success">
+              <p>Works on touch devices and desktop.</p>
+            </ion-text>
+            <ion-text color="danger">
+              <p>Does not allow to swipe the slide when touching the button.</p>
+            </ion-text>
+          </ion-text>
+
+          <ion-button class="swiper-no-swiping">
+            <ion-icon slot="start" name="logo-ionic"></ion-icon>
+            Button (with "swiper-no-swiping")
+          </ion-button>
+        </div>
+      </swiper-slide>
+
+      <swiper-slide class="home__swiper-slide">
+        <div class="swiper-slide-content">Another slide</div>
+      </swiper-slide>
+    </swiper-container>
+
+    <!-- Button outside the swiper container -->
+    <ion-button>
+      <ion-icon slot="start" name="logo-ionic"></ion-icon>
+      Button (outside the swiper container)
+    </ion-button>
+  </div>
+</ion-content>

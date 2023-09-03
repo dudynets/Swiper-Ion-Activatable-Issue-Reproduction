@@ -1,0 +1,33 @@
+.home {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+
+  swiper-container {
+    width: 100%;
+
+    swiper-slide {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid white;
+
+      .swiper-slide-content {
+        padding: 3rem 1rem;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        justify-content: center;
+        align-items: center;
+      }
+    }
+  }
+
+  ion-button {
+    transition: all ease-in-out 0.3s;
+
+    &.ion-activated {
+      scale: 0.95;
+    }
+  }
+}

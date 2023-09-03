@@ -1,0 +1,7 @@
+{
+  "name": "swiper-ion-activatable-issue-reproduction",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
